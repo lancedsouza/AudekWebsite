@@ -1,5 +1,11 @@
-import "@/styles/globals.css";
+// _app.js
+import '../styles/globals.css';
+import '../i18n'; // Correct path from pages to root
+import 'maplibre-gl/dist/maplibre-gl.css';
 
-export default function App({ Component, pageProps }) {
+
+function MyApp({ Component, pageProps }) {
   return <Component {...pageProps} />;
 }
+
+export default MyApp;

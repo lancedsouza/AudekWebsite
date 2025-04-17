@@ -1,179 +1,81 @@
-
-// // import React, { useState } from 'react';
-// // import Image from 'next/image';
-
-// // function Navbar() {
-// //   const [isOpen, setIsOpen] = useState(false);
-
-// //   const handleDropdown = () => {
-// //     setIsOpen((prev) => !prev);
-// //   };
-
-// //   return (
-// //     <nav className="relative z-50 bg-white text-black p-4 shadow-md">
-// //       <div className="flex items-center justify-between max-w-screen-xl mx-auto">
-// //         {/* Logo */}
-// //         <div className="flex-shrink-0">
-// //           <Image
-// //             src="/audeklogo.png"
-// //             alt="Audek Logo"
-// //             height={150}
-// //             width={150}
-// //             className="h-auto w-auto"
-// //           />
-// //         </div>
-
-// //         {/* Navigation Menu */}
-// //         <ul className="flex space-x-8 items-center">
-// //           {/* Dropdown Menu for Hearing Solutions */}
-// //           <li className="relative">
-// //             <button
-// //               onClick={handleDropdown}
-// //               className="text-sm hover:text-red-500"
-// //             >
-// //               Hearing Solutions
-// //             </button>
-
-// //             {isOpen && (
-// //               <ul className="absolute left-0 mt-2 bg-white shadow-lg w-52 text-black z-50 border border-gray-200">
-// //                 <li className="p-2 hover:bg-gray-100 cursor-pointer">BTE Hearing Aids</li>
-// //                 <li className="p-2 hover:bg-gray-100 cursor-pointer">RIC Hearing Aids</li>
-// //                  <li className="p-2 hover:bg-gray-100 cursor-pointer">CIC Hearing Aids</li>
-// //                 <li className="p-2 hover:bg-gray-100 cursor-pointer">Airbuds Hearing Aids</li>
-// //               </ul>
-// //             )}
-// //           </li>
-
-// //           {/* Other Menu Items */}
-// //           <li className="text-sm hover:text-red-500 cursor-pointer">Software</li>
-// //           <li className="text-sm hover:text-red-500 cursor-pointer">Contact Us</li>
-// //           <li className="text-sm hover:text-red-500 cursor-pointer">Locations</li>
-// //           <li className="text-sm hover:text-red-500 cursor-pointer">Support</li>
-// //         </ul>
-// //       </div>
-// //     </nav>
-// //   );
-// // }
-
-// // export default Navbar;
-// // components/Navbar.js
-// import React, { useState } from 'react';
-// import Image from 'next/image';
-
-// import { menuItemsData } from './Menuitemsdata';
-// import { MenuItem } from './simplemenu';
-
-// function Navbar() {
-//   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-//   const [openSubMenu, setOpenSubMenu] = useState(null);
-//   const [openInnerSubMenu, setOpenInnerSubMenu] = useState(null);
-//   const [isOpen,setisOpen]=useState(false)
-
-//   const toggleDropdown = () => {
-//     setIsDropdownOpen((prev) => !prev);
-//     setOpenSubMenu(null);
-//     setOpenInnerSubMenu(null);
-//   };
-
-//   const toggleSubMenu = (index) => {
-//     setOpenSubMenu((prev) => (prev === index ? null : index));
-//     setOpenInnerSubMenu(null); // close inner when switching outer
-//   };
-
-//   const toggleInnerSubMenu = (index) => {
-//     setOpenInnerSubMenu((prev) => (prev === index ? null : index));
-//   };
-
-//   return (
-//     <nav className="relative z-50 bg-white text-black p-4 shadow-md">
-//       <div className="flex items-center justify-between max-w-screen-xl mx-auto">
-//         {/* Logo */}
-//         <div className="flex-shrink-0">
-//           <Image src="/audeklogo.png" alt="Audek Logo" height={250} width={250} />
-//         </div>
-
-//         {/* Menu */}
-//         <ul className="flex space-x-8 items-center">
-//           <li className="relative">
-//             <button
-//               onClick={toggleDropdown}
-//               className="text-sm hover:text-red-500 flex items-center gap-1"
-//             >
-//               Hearing Solutions {isDropdownOpen ? '▴' : '▾'}
-//             </button>
-//             {isOpen && (
-//               <div className="absolute z-10 bg-yellow-100 p-2 mt-2 rounded shadow-lg">
-//                 <SimpleMenu items={menuItemsData} />
-//               </div>
-//             )}
-          
-
-//           </li>
-
-//           {/* Other items */}
-//           <li className="text-sm hover:text-red-500 cursor-pointer">Software</li>
-//           <li className="text-sm hover:text-red-500 cursor-pointer">Contact Us</li>
-//           <li className="text-sm hover:text-red-500 cursor-pointer">Locations</li>
-//           <li className="text-sm hover:text-red-500 cursor-pointer">Support</li>
-//         </ul>
-//       </div>
-//     </nav>
-//   );
-// }
-
-// export default Navbar;
-
-
-// Navbar.js
 import React, { useState } from 'react';
 import Image from 'next/image';
 import { menuItemsData } from './Menuitemsdata';
-import { SimpleMenu } from './simplemenu'; // ← Corrected import
+import { SimpleMenu } from './simplemenu';
+import { useTranslation } from 'react-i18next';
+import Link from 'next/link';
 
 function Navbar() {
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false); // For "Hearing Solutions" dropdown
+  const { t, i18n } = useTranslation();
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [isLangDropdownOpen, setIsLangDropdownOpen] = useState(false);
 
   const toggleDropdown = () => {
-    setIsDropdownOpen((prev) => !prev);
+    setIsDropdownOpen(prev => !prev);
+  };
+
+  const toggleLangDropdown = () => {
+    setIsLangDropdownOpen(prev => !prev);
+  };
+
+  const changeLanguage = (lng) => {
+    i18n.changeLanguage(lng);
+    setIsLangDropdownOpen(false); // Close dropdown after selecting
   };
 
   return (
     <nav className="relative z-50 bg-white text-black p-4 shadow-md">
       <div className="flex items-center justify-between max-w-screen-xl mx-auto">
-        
         {/* Logo */}
         <div className="flex-shrink-0">
-          <Image src="/audeklogo.png" alt="Audek Logo" height={200} width={200} />
+          <Image src="/audeklogo.png" alt="Audek Logo" height={250} width={250} />
         </div>
 
         {/* Menu */}
         <ul className="flex space-x-8 items-center">
-
-          {/* Hearing Solutions Dropdown */}
           <li className="relative">
             <button
               onClick={toggleDropdown}
-              className="text-sm hover:text-red-500 flex items-center gap-1"
+              className="text-base font-medium hover:text-red-500 transition-colors"
             >
-              Hearing Solutions {isDropdownOpen ? '▴' : '▾'}
-              {/*                ^^^^ Arrow points up when open */}
-              {/*                             ^^^^ Arrow down when closed */}
+              {t('hearingSolutions')} {isDropdownOpen ? '▴' : '▾'}
             </button>
-
-            {/* Show dropdown if open */}
             {isDropdownOpen && (
-              <div className="absolute left-0 mt-2 bg-white shadow-lg rounded border border-gray-200 z-50">
+              <div className="absolute left-0 mt-2 bg-gray-400 border-gray-200 rounded-lg shadow-lg p-4 w-64 z-50">
                 <SimpleMenu items={menuItemsData} />
-                {/* ^ Recursive component to render nested menu items */}
               </div>
             )}
           </li>
 
-          {/* Other Menu Items */}
-          <li className="text-sm hover:text-red-500 cursor-pointer">Software</li>
-          <li className="text-sm hover:text-red-500 cursor-pointer">Contact Us</li>
-          <li className="text-sm hover:text-red-500 cursor-pointer">Locations</li>
-          <li className="text-sm hover:text-red-500 cursor-pointer">Support</li>
+          <li className="text-base hover:text-red-500 cursor-pointer transition-colors">{t('software')}</li>
+          <li className="text-base hover:text-red-500 cursor-pointer transition-colors">{t('contactUs')}</li>     
+
+
+<Link href="/locations" passHref>
+  <li className="text-base hover:text-red-500 cursor-pointer transition-colors">
+    {t('locations')}
+  </li>
+</Link>
+
+          <li className="text-base hover:text-red-500 cursor-pointer transition-colors">{t('support')}</li>
+
+          {/* Language Dropdown */}
+          <li className="relative">
+            <button
+              onClick={toggleLangDropdown}
+              className="text-base font-medium hover:text-red-500 transition-colors"
+            >
+              {t('languages')} {isLangDropdownOpen ? '▴' : '▾'}
+            </button>
+            {isLangDropdownOpen && (
+              <div className="absolute left-0 mt-2 bg-gray-400 border-gray-200 rounded-lg shadow-lg p-4 w-32 z-50">
+                <button onClick={() => changeLanguage('en')} className="block w-full hover:text-red-600 text-left p-2">English</button>
+                <button onClick={() => changeLanguage('es')} className="block w-full hover:text-red-600 text-left p-2">Español</button>
+                <button onClick={() => changeLanguage('fr')} className="block w-full hover:text-red-600 text-left p-2">Français</button>
+                <button onClick={() => changeLanguage('mx')} className="block w-full hover:text-red-600 text-left p-2">Español (MX)</button>
+              </div>
+            )}
+          </li>
         </ul>
       </div>
     </nav>

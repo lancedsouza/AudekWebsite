@@ -11,7 +11,7 @@ function Features() {
         </div>
         <div className="flex flex-col items-center p-6 bg-white shadow-lg rounded-lg">
           <h3 className="text-xl font-semibold mb-2">Feature 2</h3>
-          <p className="text-gray-600">Description of feature 2.</p>
+          <p className="text-gray-600 ">Description of feature 2.</p>
         </div>
         <div className="flex flex-col items-center p-6 bg-white shadow-lg rounded-lg">
           <h3 className="text-xl font-semibold mb-2">Feature 3</h3>
