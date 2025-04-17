@@ -27,8 +27,8 @@ function Navbar() {
     <nav className="relative z-50 bg-white text-black p-4 shadow-md">
       <div className="flex items-center justify-between max-w-screen-xl mx-auto">
         {/* Logo */}
-        <div className="flex-shrink-0">
-          <Image src="/audeklogo.png" alt="Audek Logo" height={250} width={250} />
+        <div className="flex-shrink-0"> 
+          <Image src="/audekLogo.png" alt="Audek Logo" height={60} width={60} />
         </div>
 
         {/* Menu */}
