@@ -138,6 +138,8 @@ function Navbar() {
               </div>
             )}
           </li>
+          <li className="text-base hover:text-red-600 cursor-pointer">{t('About US')}</li>
+
 
           <li className="text-base hover:text-red-500 cursor-pointer">{t('software')}</li>
           <li className="text-base hover:text-red-500 cursor-pointer">{t('contactUs')}</li>
