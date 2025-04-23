@@ -107,7 +107,7 @@ function Navbar() {
   const toggleMobileMenu = () => setIsMobileMenuOpen(prev => !prev);
 
   return (
-    <nav className="relative z-50 bg-white text-black p-4 shadow-md">
+    <nav className=" container mx-auto relative z-50 bg-white text-black p-4 shadow-md ">
       <div className="flex items-center justify-between max-w-screen-xl mx-auto">
         {/* Logo */}
         <div className="flex-shrink-0">
@@ -143,9 +143,10 @@ function Navbar() {
 
           <li className="text-base hover:text-red-500 cursor-pointer">{t('software')}</li>
           <li className="text-base hover:text-red-500 cursor-pointer">{t('contactUs')}</li>
-          <Link href="/locations" passHref>
-            <li className="text-base hover:text-red-500 cursor-pointer">{t('locations')}</li>
-          </Link>
+          <li className="text-base hover:text-red-500 cursor-pointer">
+            <Link href="/locations">{t('locations')}</Link>
+          </li>
+
           <li className="text-base hover:text-red-500 cursor-pointer">{t('support')}</li>
 
           {/* Language Dropdown */}
