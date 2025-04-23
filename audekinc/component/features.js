@@ -42,7 +42,8 @@
 
 // export default Features;
 import React from 'react';
-import { FaBolt, FaAssistiveListeningSystems, FaBatteryFull, FaCogs, FaHeadphones } from 'react-icons/fa';
+import { FaBolt, FaAssistiveListeningSystems, FaBatteryFull, FaCogs, FaHeadphones,FaAudioDescription,FaBluetooth,
+  FaAudible,FaSignal,FaMicrophoneAlt,FaVolumeUp,FaBatteryHalf } from 'react-icons/fa';
 
 function Features() {
   return (
@@ -81,27 +82,20 @@ function Features() {
             {/* Coming Soon Card */}
             <div className="group relative bg-white backdrop-blur-md border border-gray-200 p-8 rounded-3xl shadow-2xl hover:shadow-purple-300 transition-all duration-500 transform hover:-translate-y-2">
               <h3 className="text-2xl font-bold text-purple-600 mb-4">Airbuds</h3>
-              <p className="text-gray-700 leading-relaxed text-lg text-center">
-                Stay tuned for our next-generation innovations combining comfort, style, and acoustic intelligence.
-              </p>
-              <ul>
-                <li>Bluetooth version: Bluetooth 5.2</li>
-                <li>1.8 CHANNEL WDRC</li>
-                <li>MPO: 116 dB</li>
-                <li>GAIN: 43 dB</li>
-                <li>THD: 3%</li>
-                <li>4 programs</li>
-                <li>VC</li>
-                <li>Bluetooth transmission range: 10 m</li>
-                <li>Headset battery capacity: 50 mAh</li>
-                <li>Charging chamber capacity: 500 mAh</li> 
-                <li>Charging time: 1.5-2 hours</li>
-                 <li>Working hours: 20 H</li>
-
-
-
-
-
+            
+              <ul className='space-y-3 text-gray-700 font-medium leading-relaxed'> 
+                <li className='flex items-center gap-3'><FaBluetooth className='text-purple-500' />Bluetooth version: Bluetooth 5.2</li>
+                <li className='flex items-center gap-3'><FaAudible className='text-purple-500'/>1.8 CHANNEL WDRC</li>
+                <li className='flex items-center gap-3'><FaSignal className='text-purple-500'/>MPO: 116 dB</li>
+                <li className='flex items-center gap-3'><FaAudioDescription className='text-purple-500'/>  GAIN: 43 dB</li>
+                <li className='flex items-center gap-3'><FaSignal className='text-purple-500'/>THD: 3%</li>
+                <li className='flex items-center gap-3'><FaSignal className='text-purple-500'/> 4 programs</li>
+                <li className='flex items-center gap-3'><FaHeadphones className='text-purple-500'/>VC</li>
+                <li className='flex items-center gap-3'><FaBluetooth className='text-purple-500'/>Bluetooth transmission range: 10 m</li>
+                <li className='flex items-center gap-3'><FaBolt className='text-purple-500'/>Headset battery capacity: 50 mAh</li>
+                <li className='flex items-center gap-3'><FaBolt className='text-purple-500'/>Charging chamber capacity: 500 mAh</li> 
+                <li className='flex items-center gap-3'><FaBatteryHalf className='text-purple-500'/>Charging time: 1.5-2 hours</li>
+                <li className='flex items-center gap-3'><FaBatteryHalf className='text-purple-500'/>Working hours: 20 H</li>
 
               </ul>
             </div>
