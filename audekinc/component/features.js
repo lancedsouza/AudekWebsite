@@ -90,7 +90,7 @@ function Features() {
                 <li className='flex items-center gap-3'><FaAudioDescription className='text-purple-500'/>  GAIN: 43 dB</li>
                 <li className='flex items-center gap-3'><FaSignal className='text-purple-500'/>THD: 3%</li>
                 <li className='flex items-center gap-3'><FaSignal className='text-purple-500'/> 4 programs</li>
-                <li className='flex items-center gap-3'><FaHeadphones className='text-purple-500'/>VC</li>
+                <li className='flex items-center gap-3'><FaHeadphones className='text-purple-500'/>Volume Controls</li>
                 <li className='flex items-center gap-3'><FaBluetooth className='text-purple-500'/>Bluetooth transmission range: 10 m</li>
                 <li className='flex items-center gap-3'><FaBolt className='text-purple-500'/>Headset battery capacity: 50 mAh</li>
                 <li className='flex items-center gap-3'><FaBolt className='text-purple-500'/>Charging chamber capacity: 500 mAh</li> 
