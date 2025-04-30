@@ -63,7 +63,7 @@ export default function AboutSlugPage() {
         {/* R&D Center */}
         <div className="w-full max-w-3xl text-center">
           <h1 className="text-4xl bg-red-500 text-white rounded-md py-2">Audek India - R&D Center</h1>
-          <h2 className="text-xl text-gray-700 mt-2">Innovation is the</h2>
+          <h2 className="text-xl text-gray-700 mt-2">Innovation is the Key Your Satisfaction</h2>
           <video
             controls
             src="/R&D.mp4"
