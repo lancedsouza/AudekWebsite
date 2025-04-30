@@ -80,7 +80,7 @@ const HeroSection = () => {
   }, []);
 
   return (
-    <section className="relative w-full h-[600px] bg-gradient-to-r from-black to-red-500 overflow-hidden">
+    <section className="relative w-full h-[900px] bg-gradient-to-r from-black to-red-500 overflow-hidden">
       
       {/* Background Image - full width */}
       <div className="absolute inset-0">
