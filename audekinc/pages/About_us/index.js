@@ -77,7 +77,7 @@ export default function AboutSlugPage() {
           <h2 className="text-xl text-gray-700 mt-2">Perfecting Innovation Through Training</h2>
           <video
             controls
-            src="/train.mp4"
+            src="/Train.mp4"
             className="w-full h-[300px] rounded-lg shadow-md mt-4"
           />
         </div>
