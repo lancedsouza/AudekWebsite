@@ -12,7 +12,7 @@ export const menuItemsData = [
         ]
       },
       { title: "Esenze-B" },
-      { title: "Luna_P" },
+      { title: "Luna-P" },
       { title: "Terra" },
       { title: "Urano-P" },
       { title: "Urano-N" }

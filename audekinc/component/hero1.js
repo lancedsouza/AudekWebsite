@@ -1,6 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import productData from '@/data/product';
 
 const Hero1 = () => {
   return (
@@ -22,7 +23,7 @@ const Hero1 = () => {
       </Link>
 
       {/* Col 2 */}
-      <Link href="/our_product/e-senzeB" className="group">
+      <Link href="/our_product/esenze-nxt" className="group">
         <div className="flex flex-col rounded-3xl  items-center justify-center bg-gray-200 hover:bg-red-500 transition duration-300 p-6">
           <Image
             src="/esenze-nxt.png"
@@ -42,7 +43,7 @@ const Hero1 = () => {
 
 
       {/* Col3  */}
-      <Link href="/our_product/e-senzeB" className="group">
+      <Link href="/our_product/airbuds" className="group">
         <div className="flex flex-col items-center justify-center rounded-3xl  bg-gray-200 hover:bg-red-500 transition duration-300 p-6">
           <Image
             src="/airbud.png"

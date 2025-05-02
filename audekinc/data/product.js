@@ -504,14 +504,111 @@ const productData = {
     "Working Hours: 20 hours"
   ],
   slug: "eos-3"
-}
+},"e-senzeB": {
+  title: "ESENZE - B",
+  type: "BTE Hearing Aids",
+  battery: "Rechargeable Lithium-ion",
+  partNumber: "BTLI80P",
+  fittingRange: "MILD TO PROFOUND",
+  colors: ["#d6ccc2", "#000000", "#8b7c6e"], // Adjust colors if needed
+  images: [
+    "/esenze-b.png",
+    "/esenze-b-2.png",
+    "/esenze-b-3.png"
+  ],
+  datasheet: "/pdfs/esenze-b-datasheet.pdf",
+  instructions: "/pdfs/esenze-b-instructions.pdf",
+  certifications: ["/rohs.png"],
+  description:
+    "The rechargeable power BTE hearing aid amplifier runs with high quality lithium battery, saving you from buying button cell batteries frequently. It can be used for 20–55 hours after charging for 4 hours. Designed by audiologists, it’s durable, comfortable, and easy to wear behind either ear.",
+  features: [
+    "Fully Digital WDRC Hybrid",
+    "Rechargeable, 20–55 hours working time",
+    "BTE design with RIC features",
+    "Rocker Switch",
+    "3-in-1 TWS Hearing Aid",
+    "Programmable or Non-programmable",
+    "Perfect Noise and Feedback Cancellation"
+  ],
+  specifications: [
+    "Design: RIC/BTE Hybrid",
+    "Working Time: 20–55 hours",
+    "Charging Time: 4 hours",
+    "Rechargeable Lithium Battery",
+    "3IN1 TWS Design",
+    "Programmable/Non-programmable"
+  ],
+  slug: "esenze-b"
+},
+"esenze-nxt": {
+  title: "ESENZE - NXT",
+  type: "RIC Hearing Aids",
+  battery: "Not specified", // Update if battery type is known
+  partNumber: "RILI80P",
+  fittingRange: "MODERATE TO SEVERE",
+  colors: ["#f1e9cf", "#000000", "#8b7c6e"], // Adjust based on actual colors
+  images: [
+    "/esenze-nxt.png",
+    "/esenze-nxt-2.png",
+    "/esenze-nxt-3.png"
+  ],
+  datasheet: "/pdfs/esenze-nxt-datasheet.pdf",
+  instructions: "/pdfs/esenze-nxt-instructions.pdf",
+  certifications: ["/rohs.png"],
+  description:
+    "This model is designed to provide clear sound amplification for individuals with moderate to severe hearing loss, offering a comfortable fit and easy adjustments.",
+  features: [
+    "Designed for moderate to severe hearing loss",
+    "Comfortable BTE (Behind the Ear) design",
+    "Clear sound amplification",
+    "Adjustable settings for user convenience"
+  ],
+  specifications: [
+    "Fitting Range: MODERATE TO SEVERE",
+    "Part Number: RILI80P",
+    "Style: RIC/BTE Hybrid",
+    "Settings: Adjustable"
+  ],
+  slug: "esenze-nxt"
+},  "airbuds": {
+  title: "EOS – 1",
+  type: "Airbud Hearing Aids",
+  battery: "50 mAh (Headset), 500 mAh (Charging Case)",
+  partNumber: "EOS-1",
+  fittingRange: "Mild to Moderate",
+  colors: ["#000000", "#FFFFFF"], // Add hex codes of available colors
+  images: ["/airbud.png"], // Add more if available
+  datasheet: "/downloads/eos-1-datasheet.pdf",
+  instructions: "/downloads/eos-1-instructions.pdf",
+  certifications: ["/certs/ce.png", "/certs/fda.png"], // update as needed
+  description:
+    "A versatile Bluetooth-enabled hearing solution with advanced features such as WDRC processing, multiple programs, and extended battery life. Ideal for users looking for an enhanced hearing experience with Bluetooth connectivity.",
+  features: [
+    "Bluetooth version: Bluetooth 5.2",
+    "1.8 CHANNEL WDRC",
+    "MPO: 116 dB",
+    "GAIN: 43 dB",
+    "THD: 3%",
+    "4 programs",
+    "VC",
+    "Bluetooth transmission range: 10 m",
+    "Headset battery capacity: 50 mAh",
+    "Charging chamber capacity: 500 mAh",
+    "Charging time: 1.5–2 hours",
+    "Working hours: 20 H",
+  ],
+  specifications: [],
+},
+};
+
+
 
 
 
 
   
     // Other products like urano-p, terra-p, etc...
-  };
+
   
 
 

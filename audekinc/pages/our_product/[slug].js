@@ -1,50 +1,43 @@
-// pages/products/[slug].js
+import React, { useState, useEffect } from "react";
+import Image from "next/image";
 import productData from "../../data/product";
 
 export async function getStaticPaths() {
-  // Get the keys (slugs) from the productData object
   const paths = Object.keys(productData).map((slug) => ({
     params: { slug },
   }));
 
   return {
     paths,
-    fallback: "blocking", // Or 'true', if you want to load the page dynamically
+    fallback: 'blocking',
   };
 }
 
-// pages/products/[slug].js
-import productData from "../../data/product";
-
 export async function getStaticProps({ params }) {
   const { slug } = params;
-  // Access product data using the slug
   const product = productData[slug] || null;
 
   return {
     props: {
-      product, // If product is not found, it will return null
+      product,
     },
   };
 }
-// pages/products/[slug].js
-import { useState, useEffect } from "react";
-import Image from "next/image";
 
 export default function ProductPage({ product }) {
   const [currentImage, setCurrentImage] = useState(0);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      if (product?.images) {
+    if (product?.images?.length > 0) {
+      const interval = setInterval(() => {
         setCurrentImage((prev) => (prev + 1) % product.images.length);
-      }
-    }, 2000);
-    return () => clearInterval(interval);
+      }, 2000);
+      return () => clearInterval(interval);
+    }
   }, [product]);
 
   if (!product) {
-    return <div>Product not found</div>; // Handle product not found case
+    return <div>Product not found</div>;
   }
 
   return (
@@ -156,4 +149,3 @@ export default function ProductPage({ product }) {
     </div>
   );
 }
-
