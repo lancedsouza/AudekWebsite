@@ -108,9 +108,9 @@ function Navbar() {
 
   return (
     <nav className=" container mx-auto relative z-50 bg-white text-black p-4 shadow-md ">
-      <div className="flex items-center justify-between max-w-screen-xl mx-auto">
+      <div className="flex items-end justify-end max-w-screen-xl mx-auto">
         {/* Logo */}
-        <div className="flex-shrink-0">
+        <div className="flex-shrink-0 self-start left-0 ">
           <Image src="/audekLogo.png" alt="Audek Logo" height={250} width={250} />
         </div>
 
@@ -141,7 +141,7 @@ function Navbar() {
           
           <Link href="/About_us" className="block">
   <li className="text-base hover:text-red-600 cursor-pointer">
-    {t('About US')}
+    {t('About Us  ')}
   </li>
 </Link>
 
@@ -190,6 +190,7 @@ function Navbar() {
           <div className="space-y-2">
             <div>{t('software')}</div>
             <div>{t('contactUs')}</div>
+            <Link href='/About_us'>{t('About Us')} </Link>
             <Link href="/locations">{t('locations')}</Link>
             <div>{t('support')}</div>
             <button onClick={toggleLangDropdown}>
