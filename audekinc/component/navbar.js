@@ -150,7 +150,7 @@ function Navbar() {
           <li className="text-base hover:text-red-500 cursor-pointer">{t('software')}</li>
           <li className="text-base hover:text-red-500 cursor-pointer">{t('contactUs')}</li>
           <li className="text-base hover:text-red-500 cursor-pointer">
-            <Link href="/locations">{t('locations')}</Link>
+            <Link href="/locations" className='block'>{t('locations')}</Link>
           </li>
 
           <li className="text-base hover:text-red-500 cursor-pointer">{t('support')}</li>
