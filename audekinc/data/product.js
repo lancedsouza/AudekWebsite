@@ -504,7 +504,7 @@ const productData = {
     "Working Hours: 20 hours"
   ],
   slug: "eos-3"
-},"e-senzeB": {
+},"esenze-b": {
   title: "ESENZE - B",
   type: "BTE Hearing Aids",
   battery: "Rechargeable Lithium-ion",

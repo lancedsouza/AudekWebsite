@@ -7,7 +7,8 @@ const Hero1 = () => {
   return (
     <div className="grid grid-cols-1 md:grid-cols-3 gap-4 p-8">
       {/* Column 1 */}
-      <Link href="/our_product/e-senzeB" className="group">
+      
+      <Link href="/our_product/esenze-b" className="group">
         <div className="flex flex-col  rounded-3xl items-center justify-center bg-gray-200 hover:bg-red-500 transition duration-300 p-6">
           <Image
             src="/esenze-b-1.png"
