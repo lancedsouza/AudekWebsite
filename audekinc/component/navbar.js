@@ -112,7 +112,7 @@ function Navbar() {
     
     {/* Logo */}
     <div className="flex-shrink-0">
-      <Image src="/audekLogo.png" alt="Audek Logo" height={80} width={150} />
+      <Image src="/audekLogo.png" alt="Audek Logo" height={150} width={200} />
     </div>
 
     {/* Hamburger for Mobile */}
