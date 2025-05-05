@@ -242,22 +242,23 @@ function Navbar() {
 
   return (
     <nav className="w-full bg-white text-black shadow-md sticky top-0 z-50">
-      <div className="container mx-auto px-4 py-3">
-        <div className="flex items-center justify-between">
-          {/* Logo */}
-          <div className="flex-shrink-0">
+      {/* Main container with proper max-width and centering */}
+      <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-16">
+          {/* Logo on the left */}
+          <div className="flex-shrink-0 flex items-center">
             <Image 
               src="/audekLogo.png" 
               alt="Audek Logo" 
-              height={80} 
-              width={200}
-              className="h-auto w-auto"
+              height={60}
+              width={180}
+              className="h-auto"
               priority
             />
           </div>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
+          {/* Desktop Menu - centered */}
+          <div className="hidden md:flex md:items-center md:space-x-8 flex-1 justify-center">
             <div className="relative">
               <button
                 onClick={toggleDropdown}
@@ -292,8 +293,10 @@ function Navbar() {
             <Link href="#" className="text-base hover:text-red-500 transition-colors">
               {t('support')}
             </Link>
+          </div>
 
-            {/* Language Dropdown */}
+          {/* Language Dropdown on the right */}
+          <div className="hidden md:block ml-4">
             <div className="relative">
               <button
                 onClick={toggleLangDropdown}
@@ -320,22 +323,26 @@ function Navbar() {
             </div>
           </div>
 
-          {/* Mobile Menu Button */}
-          <button
-            onClick={toggleMobileMenu}
-            className="md:hidden text-black focus:outline-none"
-            aria-label="Toggle menu"
-          >
-            {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
-          </button>
+          {/* Mobile menu button - right side */}
+          <div className="md:hidden flex items-center">
+            <button
+              onClick={toggleMobileMenu}
+              className="text-black focus:outline-none"
+              aria-label="Toggle menu"
+            >
+              {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
+            </button>
+          </div>
         </div>
+      </div>
 
-        {/* Mobile Menu */}
-        {isMobileMenuOpen && (
-          <div className="md:hidden mt-4 pb-4 space-y-3">
+      {/* Mobile menu */}
+      {isMobileMenuOpen && (
+        <div className="md:hidden bg-white pb-4 px-4">
+          <div className="pt-2 space-y-2">
             <button 
               onClick={toggleDropdown}
-              className="flex items-center w-full text-left text-base font-medium py-2"
+              className="flex items-center w-full text-left text-base font-medium py-2 px-3 rounded hover:bg-gray-50"
             >
               {t('hearingSolutions')} 
               <span className="ml-1">{isDropdownOpen ? '▴' : '▾'}</span>
@@ -348,7 +355,7 @@ function Navbar() {
 
             <Link 
               href="/About_us" 
-              className="block text-base py-2 hover:text-red-500"
+              className="block text-base py-2 px-3 rounded hover:bg-gray-50 hover:text-red-500"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               {t('About Us')}
@@ -356,7 +363,7 @@ function Navbar() {
 
             <Link 
               href="#" 
-              className="block text-base py-2 hover:text-red-500"
+              className="block text-base py-2 px-3 rounded hover:bg-gray-50 hover:text-red-500"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               {t('software')}
@@ -364,7 +371,7 @@ function Navbar() {
 
             <Link 
               href="#" 
-              className="block text-base py-2 hover:text-red-500"
+              className="block text-base py-2 px-3 rounded hover:bg-gray-50 hover:text-red-500"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               {t('contactUs')}
@@ -372,7 +379,7 @@ function Navbar() {
 
             <Link 
               href="/locations" 
-              className="block text-base py-2 hover:text-red-500"
+              className="block text-base py-2 px-3 rounded hover:bg-gray-50 hover:text-red-500"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               {t('locations')}
@@ -380,7 +387,7 @@ function Navbar() {
 
             <Link 
               href="#" 
-              className="block text-base py-2 hover:text-red-500"
+              className="block text-base py-2 px-3 rounded hover:bg-gray-50 hover:text-red-500"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               {t('support')}
@@ -389,7 +396,7 @@ function Navbar() {
             <div className="pt-2 border-t border-gray-200 mt-2">
               <button 
                 onClick={toggleLangDropdown}
-                className="flex items-center w-full text-left text-base font-medium py-2"
+                className="flex items-center w-full text-left text-base font-medium py-2 px-3 rounded hover:bg-gray-50"
               >
                 {t('languages')}
                 <span className="ml-1">{isLangDropdownOpen ? '▴' : '▾'}</span>
@@ -403,7 +410,7 @@ function Navbar() {
                         changeLanguage(lng);
                         setIsMobileMenuOpen(false);
                       }}
-                      className="block w-full text-left py-1 text-sm hover:text-red-500"
+                      className="block w-full text-left py-1 px-3 text-sm rounded hover:bg-gray-50 hover:text-red-500"
                     >
                       {lng === 'mx' ? 'Español (MX)' : 
                        lng === 'es' ? 'Español' : 
@@ -414,8 +421,8 @@ function Navbar() {
               )}
             </div>
           </div>
-        )}
-      </div>
+        </div>
+      )}
     </nav>
   );
 }
