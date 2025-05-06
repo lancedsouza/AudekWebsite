@@ -1,5 +1,6 @@
 import { useRouter } from 'next/router';
 import Image from 'next/image';
+import Footer from '@/component/footer';
 
 export default function AboutSlugPage() {
   const { slug } = useRouter().query;
@@ -92,6 +93,7 @@ export default function AboutSlugPage() {
           />
         </div>
       </div>
+      <Footer/>
     </div>
   );
 }

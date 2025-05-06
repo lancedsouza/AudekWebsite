@@ -67,7 +67,7 @@ import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 
 const HeroSection = () => {
-  const images = ['bte8.png', 'bte11.png', 'bte12.png', 'bte13.png'];
+  const images = ['bte8.png', 'bte11.png', 'bte12.png', 'bte14.png'];
   const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {

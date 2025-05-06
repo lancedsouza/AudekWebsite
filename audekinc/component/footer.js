@@ -88,7 +88,7 @@ function Footer() {
         <div className="flex flex-col md:flex-row justify-between items-center gap-4">
           {/* Copyright */}
           <p className="text-sm text-gray-400 text-center md:text-left">
-            &copy; {new Date().getFullYear()} <span className="font-semibold text-red-500">Audex India Private Limited</span>. All rights reserved.
+            &copy; {new Date().getFullYear()} <span className="font-semibold text-red-500">Audek India Private Limited</span>. All rights reserved.
           </p>
 
           {/* Legal Links */}
