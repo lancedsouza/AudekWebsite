@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import productData from "../../data/product";
+import Footer from "@/component/footer";
 
 export async function getStaticPaths() {
   const paths = Object.keys(productData).map((slug) => ({
@@ -146,6 +147,7 @@ export default function ProductPage({ product }) {
       <p className="text-center text-gray-500 text-sm mt-8">
         ©2025 Audek India, Ltd. All rights reserved.
       </p>
+      <Footer/>
     </div>
   );
 }

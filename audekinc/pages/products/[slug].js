@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import productData from "../../data/product"; // Assuming your product data is stored in this file
+import Footer from "@/component/footer";
 
 // This function will generate the static paths for all products
 export async function getStaticPaths() {
@@ -151,6 +152,7 @@ export default function ProductPage({ product }) {
       <p className="text-center text-gray-500 text-sm mt-8">
         ©2025 Audek India, Ltd. All rights reserved.
       </p>
+      <Footer/>
     </div>
   );
 }

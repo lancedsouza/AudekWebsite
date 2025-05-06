@@ -83,19 +83,130 @@
 // }
 
 // export default Navbar;
+// Navbar code 2
+// import React, { useState } from 'react';
+// import Image from 'next/image';
+// import { menuItemsData } from './Menuitemsdata';
+// import { SimpleMenu } from './simplemenu';
+// import { useTranslation } from 'react-i18next';
+// import Link from 'next/link';
+// import { Menu, X } from 'lucide-react'; // optional icons package
+
+// function Navbar() {
+//   const { t, i18n } = useTranslation();
+//   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+//   const [isLangDropdownOpen, setIsLangDropdownOpen] = useState(false);
+//   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+//   const toggleDropdown = () => setIsDropdownOpen(prev => !prev);
+//   const toggleLangDropdown = () => setIsLangDropdownOpen(prev => !prev);
+//   const changeLanguage = lng => {
+//     i18n.changeLanguage(lng);
+//     setIsLangDropdownOpen(false);
+//   };
+
+//   const toggleMobileMenu = () => setIsMobileMenuOpen(prev => !prev);
+
+//   return (
+//     <nav className="bg-white text-black p-4 shadow-md z-50 relative">
+//   <div className="max-w-screen-xl mx-auto flex items-center justify-between">
+    
+//     {/* Logo */}
+//     <div className="flex-shrink-0">
+//       <Image src="/audekLogo.png" alt="Audek Logo" height={150} width={200} />
+//     </div>
+
+//     {/* Hamburger for Mobile */}
+//     <button
+//       onClick={toggleMobileMenu}
+//       className="md:hidden text-black focus:outline-none"
+//     >
+//       {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
+//     </button>
+
+//     {/* Desktop Menu */}
+//     <ul className="hidden md:flex space-x-8 items-center">
+//       {/* Dropdown */}
+//       <li className="relative">
+//         <button onClick={toggleDropdown} className="font-medium hover:text-red-500">
+//           {t('hearingSolutions')} {isDropdownOpen ? '▴' : '▾'}
+//         </button>
+//         {isDropdownOpen && (
+//           <div className="absolute left-0 mt-2 bg-gray-400 border-gray-200 rounded-lg shadow-lg p-4 w-64 z-50">
+//             <SimpleMenu items={menuItemsData} />
+//           </div>
+//         )}
+//       </li>
+
+//       <Link href="/About_us"><li className="hover:text-red-600 cursor-pointer">{t('About Us')}</li></Link>
+//       <li className="hover:text-red-500 cursor-pointer">{t('software')}</li>
+//       <li className="hover:text-red-500 cursor-pointer">{t('contactUs')}</li>
+//       <Link href="/locations"><li className="hover:text-red-500 cursor-pointer">{t('locations')}</li></Link>
+//       <li className="hover:text-red-500 cursor-pointer">{t('support')}</li>
+
+//       {/* Language Dropdown */}
+//       <li className="relative">
+//         <button onClick={toggleLangDropdown} className="font-medium hover:text-red-500">
+//           {t('languages')} {isLangDropdownOpen ? '▴' : '▾'}
+//         </button>
+//         {isLangDropdownOpen && (
+//           <div className="absolute left-0 mt-2 bg-gray-400 border-gray-200 rounded-lg shadow-lg p-4 w-32 z-50">
+//             {['en', 'es', 'fr', 'mx'].map(lng => (
+//               <button
+//                 key={lng}
+//                 onClick={() => changeLanguage(lng)}
+//                 className="block w-full text-left hover:text-red-600 p-2"
+//               >
+//                 {lng === 'mx' ? 'Español (MX)' : lng === 'es' ? 'Español' : lng === 'fr' ? 'Français' : 'English'}
+//               </button>
+//             ))}
+//           </div>
+//         )}
+//       </li>
+//     </ul>
+//   </div>
+
+//   {/* Mobile Menu */}
+//   {isMobileMenuOpen && (
+//     <div className="md:hidden mt-4 space-y-4">
+//       {/* Same mobile content as before */}
+//       <ul>
+//       {menuItemsData.subproduct && menuItemsData.map((items,index)=>{
+//           <li key={index}>{items.title}</li>
+     
+
+
+//         })}
+
+
+
+
+//       </ul>
+
+      
+//     </div>
+//   )}
+// </nav>
+
+//   );
+// }
+
+// export default Navbar;
+// Navbar code 3
 import React, { useState } from 'react';
 import Image from 'next/image';
 import { menuItemsData } from './Menuitemsdata';
 import { SimpleMenu } from './simplemenu';
 import { useTranslation } from 'react-i18next';
 import Link from 'next/link';
-import { Menu, X } from 'lucide-react'; // optional icons package
+import { Menu, X } from 'lucide-react';
 
 function Navbar() {
   const { t, i18n } = useTranslation();
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isLangDropdownOpen, setIsLangDropdownOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [mobileExpandedIndex, setMobileExpandedIndex] = useState(null);
 
   const toggleDropdown = () => setIsDropdownOpen(prev => !prev);
   const toggleLangDropdown = () => setIsLangDropdownOpen(prev => !prev);
@@ -103,76 +214,123 @@ function Navbar() {
     i18n.changeLanguage(lng);
     setIsLangDropdownOpen(false);
   };
-
   const toggleMobileMenu = () => setIsMobileMenuOpen(prev => !prev);
+  const toggleMobileSubmenu = (index) => {
+    setMobileExpandedIndex(prev => (prev === index ? null : index));
+  };
 
   return (
     <nav className="bg-white text-black p-4 shadow-md z-50 relative">
-  <div className="max-w-screen-xl mx-auto flex items-center justify-between">
-    
-    {/* Logo */}
-    <div className="flex-shrink-0">
-      <Image src="/audekLogo.png" alt="Audek Logo" height={150} width={200} />
-    </div>
+      <div className="max-w-screen-xl mx-auto flex items-center justify-between">
+        {/* Logo */}
+        <div className="flex-shrink-0">
+          <Image src="/audekLogo.png" alt="Audek Logo" height={150} width={200} />
+        </div>
 
-    {/* Hamburger for Mobile */}
-    <button
-      onClick={toggleMobileMenu}
-      className="md:hidden text-black focus:outline-none"
-    >
-      {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
-    </button>
-
-    {/* Desktop Menu */}
-    <ul className="hidden md:flex space-x-8 items-center">
-      {/* Dropdown */}
-      <li className="relative">
-        <button onClick={toggleDropdown} className="font-medium hover:text-red-500">
-          {t('hearingSolutions')} {isDropdownOpen ? '▴' : '▾'}
+        {/* Hamburger for Mobile */}
+        <button
+          onClick={toggleMobileMenu}
+          className="md:hidden text-black focus:outline-none"
+        >
+          {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
         </button>
-        {isDropdownOpen && (
-          <div className="absolute left-0 mt-2 bg-gray-400 border-gray-200 rounded-lg shadow-lg p-4 w-64 z-50">
-            <SimpleMenu items={menuItemsData} />
-          </div>
-        )}
-      </li>
 
-      <Link href="/About_us"><li className="hover:text-red-600 cursor-pointer">{t('About Us')}</li></Link>
-      <li className="hover:text-red-500 cursor-pointer">{t('software')}</li>
-      <li className="hover:text-red-500 cursor-pointer">{t('contactUs')}</li>
-      <Link href="/locations"><li className="hover:text-red-500 cursor-pointer">{t('locations')}</li></Link>
-      <li className="hover:text-red-500 cursor-pointer">{t('support')}</li>
+        {/* Desktop Menu */}
+        <ul className="hidden md:flex space-x-8 items-center">
+          {/* Desktop dropdown items */}
+          <li className="relative">
+            <button onClick={toggleDropdown} className="font-medium hover:text-red-500">
+              {t('hearingSolutions')} {isDropdownOpen ? '▴' : '▾'}
+            </button>
+            {isDropdownOpen && (
+              <div className="absolute left-0 mt-2 bg-gray-400 border-gray-200 rounded-lg shadow-lg p-4 w-64 z-50">
+                <SimpleMenu items={menuItemsData} />
+              </div>
+            )}
+          </li>
 
-      {/* Language Dropdown */}
-      <li className="relative">
-        <button onClick={toggleLangDropdown} className="font-medium hover:text-red-500">
-          {t('languages')} {isLangDropdownOpen ? '▴' : '▾'}
-        </button>
-        {isLangDropdownOpen && (
-          <div className="absolute left-0 mt-2 bg-gray-400 border-gray-200 rounded-lg shadow-lg p-4 w-32 z-50">
-            {['en', 'es', 'fr', 'mx'].map(lng => (
-              <button
-                key={lng}
-                onClick={() => changeLanguage(lng)}
-                className="block w-full text-left hover:text-red-600 p-2"
+          <Link href="/About_us"><li className="hover:text-red-600 cursor-pointer">{t('About Us')}</li></Link>
+          <li className="hover:text-red-500 cursor-pointer">{t('software')}</li>
+          <li className="hover:text-red-500 cursor-pointer">{t('contactUs')}</li>
+          <Link href="/locations"><li className="hover:text-red-500 cursor-pointer">{t('locations')}</li></Link>
+          <li className="hover:text-red-500 cursor-pointer">{t('support')}</li>
+
+          {/* Language Dropdown */}
+          <li className="relative">
+            <button onClick={toggleLangDropdown} className="font-medium hover:text-red-500">
+              {t('languages')} {isLangDropdownOpen ? '▴' : '▾'}
+            </button>
+            {isLangDropdownOpen && (
+              <div className="absolute left-0 mt-2 bg-gray-400 border-gray-200 rounded-lg shadow-lg p-4 w-32 z-50">
+                {['en', 'es', 'fr', 'mx'].map(lng => (
+                  <button
+                    key={lng}
+                    onClick={() => changeLanguage(lng)}
+                    className="block w-full text-left hover:text-red-600 p-2"
+                  >
+                    {lng === 'mx' ? 'Español (MX)' : lng === 'es' ? 'Español' : lng === 'fr' ? 'Français' : 'English'}
+                  </button>
+                ))}
+              </div>
+            )}
+          </li>
+        </ul>
+      </div>
+
+      {/* Mobile Menu */}
+      {isMobileMenuOpen && (
+        <div className="md:hidden mt-4 bg-white p-4 shadow-lg rounded-lg">
+          <ul className="space-y-4">
+            {/* Hearing Solutions Dropdown */}
+            <li className="relative">
+              <button 
+                onClick={() => toggleMobileSubmenu('hearing')}
+                className="flex items-center justify-between w-full font-medium hover:text-red-500"
               >
-                {lng === 'mx' ? 'Español (MX)' : lng === 'es' ? 'Español' : lng === 'fr' ? 'Français' : 'English'}
+                {t('hearingSolutions')}
+                <span>{mobileExpandedIndex === 'hearing' ? '▴' : '▾'}</span>
               </button>
-            ))}
-          </div>
-        )}
-      </li>
-    </ul>
-  </div>
+              {mobileExpandedIndex === 'hearing' && (
+                <div className="mt-2 ml-4 bg-gray-100 p-3 rounded-lg">
+                  <SimpleMenu items={menuItemsData} mobile />
+                </div>
+              )}
+            </li>
 
-  {/* Mobile Menu */}
-  {isMobileMenuOpen && (
-    <div className="md:hidden mt-4 space-y-4">
-      {/* Same mobile content as before */}
-    </div>
-  )}
-</nav>
+            {/* Regular Menu Items */}
+            <Link href="/About_us"><li className="hover:text-red-600 cursor-pointer py-2">{t('About Us')}</li></Link>
+            <li className="hover:text-red-500 cursor-pointer py-2">{t('software')}</li>
+            <li className="hover:text-red-500 cursor-pointer py-2">{t('contactUs')}</li>
+            <Link href="/locations"><li className="hover:text-red-500 cursor-pointer py-2">{t('locations')}</li></Link>
+            <li className="hover:text-red-500 cursor-pointer py-2">{t('support')}</li>
 
+            {/* Language Dropdown */}
+            <li className="relative">
+              <button 
+                onClick={() => toggleMobileSubmenu('language')}
+                className="flex items-center justify-between w-full font-medium hover:text-red-500 py-2"
+              >
+                {t('languages')}
+                <span>{mobileExpandedIndex === 'language' ? '▴' : '▾'}</span>
+              </button>
+              {mobileExpandedIndex === 'language' && (
+                <div className="mt-2 ml-4 bg-gray-100 p-3 rounded-lg">
+                  {['en', 'es', 'fr', 'mx'].map(lng => (
+                    <button
+                      key={lng}
+                      onClick={() => changeLanguage(lng)}
+                      className="block w-full text-left hover:text-red-600 p-2"
+                    >
+                      {lng === 'mx' ? 'Español (MX)' : lng === 'es' ? 'Español' : lng === 'fr' ? 'Français' : 'English'}
+                    </button>
+                  ))}
+                </div>
+              )}
+            </li>
+          </ul>
+        </div>
+      )}
+    </nav>
   );
 }
 
