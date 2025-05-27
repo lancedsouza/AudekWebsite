@@ -67,7 +67,7 @@ export default function AboutSlugPage() {
           </ul>
         </section>
       </div>
-      <Footer/>
+     
     </div>
   );
 }

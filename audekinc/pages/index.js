@@ -76,7 +76,7 @@ export default function Home() {
       </Head>
 
       <div className={`${geistSans.variable} ${geistMono.variable} font-sans`}>
-        <Navbar />
+        
         <HeroSection />
         <Hero1/>
         <Features />
@@ -87,7 +87,7 @@ export default function Home() {
 
 
 
-        <Footer />
+        
       </div>
     </>
   );

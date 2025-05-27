@@ -147,7 +147,7 @@ export default function ProductPage({ product }) {
       <p className="text-center text-gray-500 text-sm mt-8">
         ©2025 Audek India, Ltd. All rights reserved.
       </p>
-      <Footer/>
+     
     </div>
   );
 }

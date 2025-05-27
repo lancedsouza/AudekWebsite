@@ -310,8 +310,7 @@ export default function LocationsPage() {
         </div>
       </div>
 
-      {/* Footer */}
-      <Footer />
+     
     </div>
   );
 }

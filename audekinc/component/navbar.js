@@ -219,6 +219,7 @@ function Navbar() {
     setMobileExpandedIndex(prev => (prev === index ? null : index));
   };
 
+
   return (
     <nav className="bg-white text-black p-4 shadow-md z-50 relative">
       <div className="max-w-screen-xl mx-auto flex items-center justify-between">
@@ -251,7 +252,7 @@ function Navbar() {
 
           <Link href="/About_us"><li className="hover:text-red-600 cursor-pointer">{t('About Us')}</li></Link>
           <li className="hover:text-red-500 cursor-pointer">{t('software')}</li>
-          <li className="hover:text-red-500 cursor-pointer">{t('contactUs')}</li>
+          <Link href='/contact_us '><li className="hover:text-red-500 cursor-pointer">{t('contactUs')}</li></Link>
           <Link href="/locations"><li className="hover:text-red-500 cursor-pointer">{t('locations')}</li></Link>
           <li className="hover:text-red-500 cursor-pointer">{t('support')}</li>
 

@@ -93,7 +93,7 @@ export default function AboutSlugPage() {
           />
         </div>
       </div>
-      <Footer/>
+ 
     </div>
   );
 }
